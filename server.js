@@ -2,8 +2,8 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 
-// dentro da pasta atual, no qual sever.js está
-// sirva os arquivos estáticos (html, js, fontes etc.)
+// serve o conteúdo estático (html, js, fontes etc.)
+// dentro da pasta atual, onde o server.js está
 app.use(express.static('.'))
 
 // transforma em objeto os dados
@@ -12,7 +12,5 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // transforma json em objeto
 app.use(bodyParser.json())
-
-app.get('/test', (req, res) => res.send('ok'))
 
 app.listen(8080, () => console.log('executando'))
